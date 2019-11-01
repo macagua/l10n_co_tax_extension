@@ -5,8 +5,6 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.    #
 #                                                                             #
 #                                                                             #
-# Copyright (C) Dominic Krimmer (Plastinorte S.A.S).                          #
-# Author        Dominic Krimmer, dominic.krimmer@gmail.com                    #
 #                                                                             #
 # Co-Authors    Odoo LoCo                                                     #
 #               Localización funcional de Odoo para Colombia                  #
@@ -30,3 +28,4 @@ from . import l10n_co_tax_extension
 from . import ir_sequence
 from . import sale
 from . import sale_make_invoice_advance
+from . import purchase_order_line_inherit
