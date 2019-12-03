@@ -25,13 +25,13 @@
 ###############################################################################
 
 
-from openerp import api, fields, models
+from odoo import api, fields, models
 
 import pprint
-from openerp.exceptions import UserError, ValidationError
-from openerp.tools.translate import _
-from openerp.tools import float_is_zero, float_compare
-from openerp.tools.misc import formatLang
+from odoo.exceptions import UserError, ValidationError
+from odoo.tools.translate import _
+from odoo.tools import float_is_zero, float_compare
+from odoo.tools.misc import formatLang
 from datetime import datetime
 
 import pprint
@@ -45,6 +45,18 @@ class AccountInvoice(models.Model):
 	_description = 'Model to create and save withholding taxes'
 
 	_inherit = 'account.invoice'
+
+
+	def validate_number_phone(self, data):
+		if data.phone and data.mobile:
+			return data.phone + ' - ' + data.mobile
+		if data.phone and not data.mobile:
+			return data.phone
+		if data.mobile and not data.phone:
+			return data.mobile
+
+	def validate_state_city(self, data):
+		return ((data.country_id.name + ' ') if data.country_id.name else ' ') + ( ' ' + (data.state_id.name + ' ') if data.state_id.name else ' ') + (' ' + data.xcity.name if data.xcity.name else '')
 
 	@api.one
 	def _get_has_valid_dian_info_JSON(self):

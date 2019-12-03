@@ -32,7 +32,7 @@
     'license': 'AGPL-3',
     'maintainer': 'Odoo LoCo',
     'website': 'https://github.com/odooloco',
-	'summary': 'Impuestos de Colombia: Modulo de Facturacion - Odoo 11.0',
+	'summary': 'Impuestos de Colombia: Modulo de Facturacion - Odoo 12.0',
 	'images': ['images/'],
 	'description': """
 Impuestos Colombia:
