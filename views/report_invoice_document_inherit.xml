@@ -60,8 +60,7 @@
          <span t-if="not o.partner_id.vat">
 
 	   <div class="col-6" name="client_address">
-               <span t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')"><strong><h2>Client</h2></strong></span>
-               <span t-if="o.type == 'in_invoice'"><strong><h2>Provider</h2></strong></span>
+                <span><strong>Cliente: </strong></span> <span t-field="o.partner_id.name"/><br/>
                 <span t-if="o.partner_id.formatedNit"> NIT: <span t-field="o.partner_id.formatedNit"/></span>
                 <span t-if="o.partner_id.xidentification and not o.partner_id.formatedNit"> NIT: <span t-field="o.partner_id.xidentification"/></span>
                 <address t-field="o.partner_id"
