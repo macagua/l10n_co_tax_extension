@@ -23,6 +23,9 @@
           <span t-if="company.partner_id.formatedNit" style="display:inline-block;">
             NIT: <span t-field="company.partner_id.formatedNit" />
           </span>
+            <span t-if="o.partner_id.phone or o.partner_id.mobile"><br/>
+              Tel: <span t-esc="o.partner_id.phone"/> / <span t-esc="o.partner_id.mobile"/>
+            </span>
         </div>
 
         <div class="col-6" name="client_address" style="font-size:12px; margin-top:10px;">
