@@ -46,10 +46,10 @@
             <span t-if="o.partner_id.vat">TIN: <span t-field="o.partner_id.vat"/></span>
             <span t-if="o.partner_id.street"><br /><span t-field="o.partner_id.street"/></span>
             <span t-if="o.partner_id.street2"><br /> <span t-field="o.partner_id.street2"/></span>
-            <span t-if="o.partner_id.country_id"><br /> <span t-field="o.partner_id.country_id"/></span>
-            <span t-if="o.partner_id.state_id">, <span t-field="o.partner_id.state_id"/></span>
-            <span t-if="o.partner_id.xcity">, <span t-field="o.partner_id.xcity"/></span>           
-                
+            <span t-if="o.partner_id.xcity"><br /> <span t-field="o.partner_id.xcity"/></span>
+            <span t-if="o.partner_id.state_id"> <span t-field="o.partner_id.state_id.name"/></span><br />
+            <span t-if="o.partner_id.country_id"> <span t-field="o.partner_id.country_id"/></span>
+          
             <span t-if="o.partner_id.phone or o.partner_id.mobile"><br/>
               Tel: <span t-esc="o.partner_id.phone"/> / <span t-esc="o.partner_id.mobile"/>
             </span>
