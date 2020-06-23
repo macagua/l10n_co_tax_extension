@@ -24,9 +24,10 @@
           <span t-if="company.partner_id.formatedNit" style="display:inline-block;">
             NIT: <span t-field="company.partner_id.formatedNit" />
           </span>
-            <span t-if="o.partner_id.phone or o.partner_id.mobile"><br/>
-              Tel: <span t-esc="o.partner_id.phone"/> / <span t-esc="o.partner_id.mobile"/>
+            <span t-if="company.partner_id.phone or company.partner_id.mobile"><br/>
+              Tel: <span t-esc="company.partner_id.phone"/> / <span t-esc="company.partner_id.mobile"/>
             </span>
+            <br/>
         </div>
 
         <div class="col-6" name="client_address" style="font-size:12px; margin-top:10px;">
@@ -68,6 +69,16 @@
           </span>
         </div>
       </xpath>
+
+    <xpath expr="//ul[@class='list-inline mb4']" position="replace">
+        <ul class="list-inline mb4">
+            <li t-if="company.phone" class="list-inline-item">Phone: <span t-field="company.phone"/></li>
+            <li t-if="company.email" class="list-inline-item">Email: <span t-field="company.email"/></li>
+            <li t-if="company.website" class="list-inline-item">Web: <span t-field="company.website"/></li>
+            <li t-if="company.vat" class="list-inline-item">NIT: <span t-field="company.vat"/></li> 
+        </ul>
+    </xpath>
+
     </template> 
 
     <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
