@@ -27,7 +27,7 @@
 {
 	'name': 'Impuestos - Colombia',
 	'category': 'Localization',
-	'version': '12.0',
+	'version': '12.0.0.1.1',
         'author': 'Odoo LoCo',
         'license': 'AGPL-3',
         'maintainer': 'Odoo LoCo',
