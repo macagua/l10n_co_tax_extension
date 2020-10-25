@@ -158,7 +158,6 @@ class AccountInvoice(models.Model):
 		else:
 			self.reconciled = False
 
-	@api.multi
 	def _get_tax_amount_by_group(self):
 		self.ensure_one()
 		res = {}
@@ -208,7 +207,6 @@ class AccountInvoice(models.Model):
 		self._onchange_invoice_line_ids()
 		return res
 
-	@api.multi
 	def get_taxes_values(self):
 		tax_grouped = super(AccountInvoice, self).get_taxes_values()
 		
@@ -372,7 +370,6 @@ class AccountInvoice(models.Model):
 			self.date_invoice = fields.Date.context_today(self)
 		self._onchange_invoice_line_ids()
 
-	@api.multi
 	def action_move_create(self):
 		result = super(AccountInvoice, self).action_move_create()
 
@@ -493,7 +490,6 @@ class AccountBaseTax(models.Model):
 		if self.start_date and self.end_date and self.end_date < self.start_date:
 			raise ValidationError("Error! End date cannot be set before start date.")
 
-	@api.multi
 	@api.constrains('start_date', 'end_date')
 	def _dont_overlap_date(self):
 		bases_ids = self.search([('start_date', '<=', self.end_date),

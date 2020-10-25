@@ -26,7 +26,6 @@ class ResPartnerInherit(models.Model):
 	_inherit = 'res.partner'
 
 
-	@api.multi
 	def _display_address(self, without_company=False):
 
 		'''
