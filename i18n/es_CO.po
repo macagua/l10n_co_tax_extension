@@ -1,25 +1,28 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 #	* l10n_co_tax_extension
-#
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c-20161205\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-12 22:02+0000\n"
-"PO-Revision-Date: 2017-04-12 22:02+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2020-10-25 08:31-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
+"Language-Team: ES <LL@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 
 #. module: l10n_co_tax_extension
 #: model:ir.ui.view,arch_db:l10n_co_tax_extension.report_invoice_document_inherit
 msgid "<br/>\n"
 "              Nit:"
-msgstr "<br/>\n"
+msgstr ""
+"<br/>\n"
 "              Nit:"
 
 #. module: l10n_co_tax_extension
@@ -43,7 +46,6 @@ msgstr "Resolución activa"
 msgid "Amount"
 msgstr "Cantidad"
 
-
 #. module: l10n_co_tax_extension
 #: model_terms:ir.ui.view,arch_db:l10n_co_tax_extension.report_invoice_document_inherit
 msgid "Base"
@@ -58,7 +60,6 @@ msgstr "Impuestos"
 #: model_terms:ir.ui.view,arch_db:l10n_co_tax_extension.report_invoice_document_inherit
 msgid "Amount"
 msgstr "Importe"
-
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_tax_base_taxes
@@ -84,7 +85,9 @@ msgstr "Activa esto si quieres evitar que aparezca en la lista de impuesto de lo
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,help:l10n_co_tax_extension.field_account_tax_group_not_in_invoice
 msgid "Check this if you want to hide the taxes in this group when print an invoice"
-msgstr "Check this if you want to hide the taxes in this group when print an invoice"
+msgstr ""
+"Marque esto si desea ocultar los impuestos en este grupo al imprimir una "
+"factura"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_base_tax_create_uid
@@ -110,7 +113,9 @@ msgstr "Resoluciones DIAN"
 #: code:addons/l10n_co_tax_extension/models/l10n_co_tax_extension.py:224
 #, python-format
 msgid "Debe definir una posicion fiscal para el partner asociado a la compañía actual"
-msgstr "Debe definir una posicion fiscal para el partner asociado a la compañía actual"
+msgstr ""
+"Debe definir una posición fiscal para el partner asociado a la compañía "
+"actual"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_base_tax_display_name
@@ -133,13 +138,13 @@ msgstr "No mostrar en factura"
 #: code:addons/l10n_co_tax_extension/models/sale_make_invoice_advance.py:35
 #, python-format
 msgid "Down Payment"
-msgstr "Down Payment"
+msgstr "Pago inicial"
 
 #. module: l10n_co_tax_extension
 #: code:addons/l10n_co_tax_extension/models/sale_make_invoice_advance.py:32
 #, python-format
 msgid "Down payment of %s%%"
-msgstr "Down payment of %s%%"
+msgstr "Pago inicial de %s%%"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_tax_tax_in_invoice
@@ -159,12 +164,12 @@ msgstr "Posición Fiscal"
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_fiscal_position_base_tax_position_id
 msgid "Fiscal position related"
-msgstr "Fiscal position related"
+msgstr "Relacionado con la posición fiscal"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_tax_position_id
 msgid "Fiscal position related id"
-msgstr "Fiscal position related id"
+msgstr "ID relacionado con la posición fiscal"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_ir_sequence_dian_resolution_date_from
@@ -202,8 +207,11 @@ msgstr "Libro"
 #: model:ir.ui.view,arch_db:l10n_co_tax_extension.invoice_form
 msgid "La resolución de autorización de numeración de facturación está próxima a expirar o la numeración autorizada se está agotando. <br/>\n"
 "                      <span style=\"font-weight:bold;\">Por favor informe a la administración</span>"
-msgstr "La resolución de autorización de numeración de facturación está próxima a expirar o la numeración autorizada se está agotando. <br/>\n"
-"                      <span style=\"font-weight:bold;\">Por favor informe a la administración</span>"
+msgstr ""
+"La resolución de autorización de numeración de facturación está próxima a "
+"expirar o la numeración autorizada se está agotando. <br/>\n"
+"                      <span style=\"font-weight:bold;\">Por favor, informe a "
+"la administración</span>"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_base_tax___last_update
@@ -245,7 +253,7 @@ msgstr "Próximo número de esta secuencia"
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_invoice_not_has_valid_dian
 msgid "Not has valid dian"
-msgstr "Not has valid dian"
+msgstr "No tiene DIAN válido"
 
 #. module: l10n_co_tax_extension
 #: model:ir.ui.view,arch_db:l10n_co_tax_extension.report_invoice_document_inherit
@@ -266,18 +274,18 @@ msgstr "Abono"
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_ir_sequence_remaining_days
 #: model:ir.model.fields,help:l10n_co_tax_extension.field_ir_sequence_remaining_days
 msgid "Remaining days"
-msgstr "Remaining days"
+msgstr "Días restantes"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_ir_sequence_remaining_numbers
 #: model:ir.model.fields,help:l10n_co_tax_extension.field_ir_sequence_remaining_numbers
 msgid "Remaining numbers"
-msgstr "Remaining numbers"
+msgstr "Números restantes"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_invoice_resolution_date
 msgid "Resolution date"
-msgstr "Resolution date"
+msgstr "Fecha de Resolución"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_ir_sequence_dian_resolution_resolution_number
@@ -287,17 +295,17 @@ msgstr "Número de resolución"
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_invoice_resolution_number_from
 msgid "Resolution number from"
-msgstr "Resolution number from"
+msgstr "Número de resolución de"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_invoice_resolution_number
 msgid "Resolution number in invoice"
-msgstr "Resolution number in invoice"
+msgstr "Número de resolución en factura"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_invoice_resolution_number_to
 msgid "Resolution number to"
-msgstr "Resolution number to"
+msgstr "Número de resolución a"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model,name:l10n_co_tax_extension.model_sale_advance_payment_inv
@@ -312,7 +320,7 @@ msgstr "Orden de Venta"
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_base_tax_start_date
 msgid "Since date"
-msgstr "Since date"
+msgstr "Desde la fecha"
 
 #. module: l10n_co_tax_extension
 #: model:ir.ui.view,arch_db:l10n_co_tax_extension.report_invoice_document_inherit
@@ -339,12 +347,12 @@ msgstr "Cuenta de Impuestos en Devoluciones (Contrapartida)"
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_base_tax_amount
 msgid "Tax amount"
-msgstr "Tax amount"
+msgstr "Cantidad del impuesto"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_base_tax_tax_id
 msgid "Tax related"
-msgstr "Tax related"
+msgstr "Relacionado con impuestos"
 
 #. module: l10n_co_tax_extension
 #: model:ir.ui.view,arch_db:l10n_co_tax_extension.account_fiscal_position_inherit_view
@@ -354,7 +362,7 @@ msgstr "Impuestos en factura"
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_fiscal_position_tax_ids_invoice
 msgid "Taxes that refer to the fiscal position"
-msgstr "Taxes that refer to the fiscal position"
+msgstr "Impuestos que se refieren a la posición fiscal"
 
 #. module: l10n_co_tax_extension
 #: code:addons/l10n_co_tax_extension/models/ir_sequence.py:143
@@ -372,18 +380,21 @@ msgstr "El sistema necesita solo una resolución de la DIAN activa"
 #: code:addons/l10n_co_tax_extension/models/sale_make_invoice_advance.py:29
 #, python-format
 msgid "The value of the down payment amount must be positive."
-msgstr "The value of the down payment amount must be positive."
+msgstr "El valor del monto del anticipo debe ser positivo."
 
 #. module: l10n_co_tax_extension
 #: code:addons/l10n_co_tax_extension/models/sale_make_invoice_advance.py:25
 #, python-format
 msgid "There is no income account defined for this product: \"%s\". You may have to install a chart of account from Accounting app, settings menu."
-msgstr "There is no income account defined for this product: \"%s\". You may have to install a chart of account from Accounting app, settings menu."
+msgstr ""
+"No hay una cuenta de ingresos definida para este producto: \"%s\". Es "
+"posible que deba instalar un plan de cuentas desde la aplicación "
+"Contabilidad, menú de configuración."
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,help:l10n_co_tax_extension.field_account_tax_base_taxes
 msgid "This field show related taxes applied to this tax"
-msgstr "This field show related taxes applied to this tax"
+msgstr "Este campo muestra los impuestos relacionados aplicados a este impuesto"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_ir_sequence_dian_resolution_date_to
@@ -403,12 +414,12 @@ msgstr "Tipo"
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_base_tax_end_date
 msgid "Until date"
-msgstr "Until date"
+msgstr "Hasta la fecha"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_ir_sequence_use_dian_control
 msgid "Use DIAN control resolutions"
-msgstr "Use DIAN control resolutions"
+msgstr "Use resoluciones de control DIAN"
 
 #. module: l10n_co_tax_extension
 #: model:ir.ui.view,arch_db:l10n_co_tax_extension.report_invoice_document_inherit
@@ -435,13 +446,14 @@ msgstr "Historial de comunicación del sitio web"
 #. module: l10n_co_tax_extension
 #: model:ir.model.fields,field_description:l10n_co_tax_extension.field_account_invoice_wh_taxes
 msgid "Withholding Tax"
-msgstr "Retencion a la Fuente"
+msgstr "Retención a la Fuente"
 
 #. module: l10n_co_tax_extension
 #: code:addons/l10n_co_tax_extension/models/l10n_co_tax_extension.py:303
 #, python-format
 msgid "You have not a counterpart account on one of your company taxes"
-msgstr "You have not a counterpart account on one of your company taxes"
+msgstr ""
+"No tiene una cuenta de contra-parte en uno de los impuestos de su empresa"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model,name:l10n_co_tax_extension.model_account_base_tax
@@ -477,9 +489,9 @@ msgstr "ir.sequence.dian_resolution"
 #: model:ir.ui.view,arch_db:l10n_co_tax_extension.report_invoice_document_inherit
 msgid "|\n"
 "                     Rango de Facturación:"
-msgstr "|\n"
+msgstr ""
+"|\n"
 "                     Rango de Facturación:"
-
 
 #. module: l10n_co_tax_extension
 #: model_terms:ir.ui.view,arch_db:l10n_co_tax_extension.report_invoice_document_inherit
@@ -555,7 +567,7 @@ msgstr "SIN IDENTIFICACIÓN DEL EXTERIOR"
 #. module: l10n_co_tax_extension
 #: model_terms:ir.ui.view,arch_db:l10n_co_tax_extension.report_invoice_document_inherit
 msgid "<strong>Shipping address:</strong>"
-msgstr "<strong>Dirección de Envío</strong>"
+msgstr "<strong>Dirección de Envío:</strong>"
 
 #. module: l10n_co_tax_extension
 #: model:ir.model,name:l10n_co_tax_extension.model_account_invoice
