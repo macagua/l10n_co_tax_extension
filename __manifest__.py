@@ -27,12 +27,12 @@
 {
 	'name': 'Impuestos - Colombia',
 	'category': 'Localization',
-	'version': '12.0.0.1.1',
+	'version': '13.0.0.1.1',
         'author': 'Odoo LoCo',
         'license': 'AGPL-3',
         'maintainer': 'Odoo LoCo',
         'website': 'https://github.com/odooloco',
-	'summary': 'Impuestos de Colombia: Modulo de Facturacion - Odoo 12.0',
+	'summary': 'Impuestos de Colombia: Modulo de Facturacion - Odoo 13.0',
 	'images': ['images/'],
 	'description': """
 Impuestos Colombia:

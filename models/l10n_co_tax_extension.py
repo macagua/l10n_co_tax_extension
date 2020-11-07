@@ -44,7 +44,7 @@ class AccountInvoice(models.Model):
 
 	_description = 'Model to create and save withholding taxes'
 
-	_inherit = 'account.invoice'
+	_inherit = 'account.move'
 
 
 	def validate_number_phone(self, data):
@@ -58,7 +58,6 @@ class AccountInvoice(models.Model):
 	def validate_state_city(self, data):
 		return ((data.country_id.name + ' ') if data.country_id.name else ' ') + ( ' ' + (data.state_id.name + ' ') if data.state_id.name else ' ') + (' ' + data.xcity.name if data.xcity.name else '')
 
-	@api.one
 	def _get_has_valid_dian_info_JSON(self):
 		if self.journal_id.sequence_id.use_dian_control:
 			remaining_numbers = self.journal_id.sequence_id.remaining_numbers
@@ -98,8 +97,7 @@ class AccountInvoice(models.Model):
 
 	# Calculate withholding tax and (new) total amount 
 
-	@api.one
-	@api.depends('invoice_line_ids.price_subtotal', 'tax_line_ids.amount', 'currency_id', 'company_id')
+	@api.depends('invoice_line_ids.price_subtotal', 'line_ids.tax_line_id.amount', 'currency_id', 'company_id')
 	def _compute_amount(self):
 		"""
 		This functions computes the withholding tax on the untaxed amount
@@ -117,17 +115,16 @@ class AccountInvoice(models.Model):
 
 			partner_tax_ids = [base_tax.tax_id.id for base_tax in fp_partner.tax_ids_invoice]
 
-			self.amount_tax = sum(line.amount for line in self.tax_line_ids if line.tax_id.id not in (partner_tax_ids + company_tax_ids))
-			self.wh_taxes = abs(sum(line.amount for line in self.tax_line_ids if line.tax_id.id in partner_tax_ids))
+			self.amount_tax = sum(line.amount for line in self.line_ids.filtered(lambda line: line.tax_line_id) if line.tax_id.id not in (partner_tax_ids + company_tax_ids))
+			self.wh_taxes = abs(sum(line.amount for line in self.line_ids.filtered(lambda line: line.tax_line_id) if line.tax_id.id in partner_tax_ids))
 		else:
-			self.amount_tax = sum(line.amount for line in self.tax_line_ids if line.tax_id.id not in company_tax_ids)
+			self.amount_tax = sum(line.amount for line in self.line_ids.filtered(lambda line: line.tax_line_id) if line.tax_id.id not in company_tax_ids)
 
 		self.amount_without_wh_tax = self.amount_untaxed + self.amount_tax
 		self.amount_total = self.amount_without_wh_tax - self.wh_taxes
 		sign = self.type in ['in_refund', 'out_refund'] and -1 or 1
 		self.amount_total_signed = self.amount_total * sign
 
-	@api.one
 	@api.depends(
 		'state', 'currency_id', 'invoice_line_ids.price_subtotal',
 		'move_id.line_ids.amount_residual',
@@ -162,7 +159,7 @@ class AccountInvoice(models.Model):
 		self.ensure_one()
 		res = {}
 		currency = self.currency_id or self.company_id.currency_id
-		for line in self.tax_line_ids:
+		for line in self.line_ids.filtered(lambda line: line.tax_line_id):
 			if not line.tax_id.dont_impact_balance:
 				res.setdefault(line.tax_id.tax_group_id, 0.0)
 				res[line.tax_id.tax_group_id] += line.amount
@@ -180,7 +177,7 @@ class AccountInvoice(models.Model):
 
 	def at_least_one_tax_group_enabled(self):
 		res = False
-		groups = self.env['account.tax'].search_read([('id','in',[invoice_tax.tax_id.id for invoice_tax in self.tax_line_ids])],['tax_group_id'])
+		groups = self.env['account.tax'].search_read([('id','in',[invoice_tax.tax_id.id for invoice_tax in self.line_ids.filtered(lambda line: line.tax_line_id)])],['tax_group_id'])
 
 		in_invoice = set()
 		for group in groups:
@@ -343,7 +340,7 @@ class AccountInvoice(models.Model):
 													  ('dont_impact_balance','=',True)])
 			tax_ids = [tax.id for tax in tax_ids]
 			done_taxes = []
-			for tax_line in sorted(self.tax_line_ids, key=lambda x: -x.sequence):
+			for tax_line in sorted(self.line_ids.filtered(lambda line: line.tax_line_id), key=lambda x: -x.sequence):
 				if tax_line.tax_id.id in tax_ids:
 					if tax_line.tax_id.account_id_counterpart and tax_line.tax_id.refund_account_id_counterpart:
 						done_taxes.append(tax_line.tax_id.id)
@@ -385,8 +382,8 @@ class AccountInvoice(models.Model):
 AccountInvoice()
 
 class AccountInvoiceLine(models.Model):
-	_name = 'account.invoice.line'
-	_inherit = 'account.invoice.line'
+	_name = 'account.move.line'
+	_inherit = 'account.move.line'
 
 
 	@api.onchange('product_id')
@@ -463,7 +460,7 @@ class AccountTax(models.Model):
 	def onchange_account_id_counterpart(self):
 		self.refund_account_id_counterpart = self.account_id_counterpart
 
-	@api.v8
+	# @api.v8
 	def compute_all(self, price_unit, currency=None, quantity=1.0, product=None, partner=None):
 		result = super(AccountTax, self).compute_all(price_unit, currency=currency, quantity=quantity, product=product, partner=partner)
 		for tax in self.sorted(key=lambda r: r.sequence):
@@ -484,7 +481,6 @@ class AccountBaseTax(models.Model):
 	amount = fields.Float(digits=0, default=0, string="Tax amount", required=True)
 	# currency_id = fields.Many2one('res.currency', related='tax_id.company_id.currency_id', store=True)
 
-	@api.one
 	@api.constrains('start_date', 'end_date')
 	def _check_closing_date(self):
 		if self.start_date and self.end_date and self.end_date < self.start_date:

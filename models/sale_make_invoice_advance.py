@@ -36,7 +36,7 @@ class SaleAdvancePaymentInv(models.TransientModel):
     _inherit = "sale.advance.payment.inv"
 
     def _create_invoice(self, order, so_line, amount):
-        inv_obj = self.env['account.invoice']
+        inv_obj = self.env['account.move']
         ir_property_obj = self.env['ir.property']
 
         account_id = False
