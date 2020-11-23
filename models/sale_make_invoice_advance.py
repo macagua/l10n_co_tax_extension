@@ -30,6 +30,7 @@ import time
 import odoo.addons.decimal_precision as dp
 from odoo.exceptions import UserError, ValidationError
 
+
 class SaleAdvancePaymentInv(models.TransientModel):
     _name = "sale.advance.payment.inv"
     _description = "Sales Advance Payment Invoice"

@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <openerp>
     <data>
-            <!-- Extending Invoice Form View -->
-            <record id="invoice_form" model="ir.ui.view">
-              <field name="model">account.invoice</field>
-              <field name="inherit_id" ref="account.invoice_form"/>
-                <field name="arch" type="xml">
-                  <!--  Withholding calculation -->
-                  <field name="amount_tax" position="after">
-                    <field name="amount_without_wh_tax" attrs="{'invisible':[('fiscal_position_id', '=', False)]}" style="border-top: 1px solid #cacaca;"/>
-                  </field>
-                  <field name="amount_total" position="before">
-                    <field name="wh_taxes" attrs="{'invisible':[('fiscal_position_id', '=', False)]}" />
-                  </field>
 
-                  <xpath expr="//field[@name='has_outstanding']" position="after">
-                    <div class="alert alert-error" role="alert" style="margin-bottom:0px; background-color:#ff9e9e;" attrs="{'invisible': [('not_has_valid_dian','=',False)]}">
-                      La resolución de autorización de numeración de facturación está próxima a expirar o la numeración autorizada se está agotando. <br />
-                      <span style="font-weight:bold;">Por favor informe a la administración</span>
-                    </div>
-                    <field name="not_has_valid_dian" invisible="1"/>
-                  </xpath>
-                </field>
-            </record>
+    <!-- Extending Invoice Form View -->
+    <record id="invoice_form" model="ir.ui.view">
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="arch" type="xml">
+          <!--  Withholding calculation -->
+          <field name="amount_tax" position="after">
+            <field name="amount_without_wh_tax" attrs="{'invisible':[('fiscal_position_id', '=', False)]}" style="border-top: 1px solid #cacaca;"/>
+          </field>
+          <field name="amount_total" position="before">
+            <field name="wh_taxes" attrs="{'invisible':[('fiscal_position_id', '=', False)]}" />
+          </field>
+
+          <xpath expr="//field[@name='has_outstanding']" position="after">
+            <div class="alert alert-error" role="alert"
+                 style="margin-bottom:0px; background-color:#ff9e9e;"
+                 attrs="{'invisible': [('not_has_valid_dian','=',False)]}">
+              La resolución de autorización de numeración de facturación está próxima a expirar o la numeración autorizada se está agotando. <br />
+              <span style="font-weight:bold;">Por favor informe a la administración</span>
+            </div>
+            <field name="not_has_valid_dian" invisible="1"/>
+          </xpath>
+        </field>
+    </record>
 
             <record id="invoice_supplier_form_inherit" model="ir.ui.view">
               <field name="model">account.invoice</field>
@@ -32,10 +35,10 @@
                     <field name="amount_without_wh_tax" attrs="{'invisible':[('fiscal_position_id', '=', False)]}" style="border-top: 1px solid #cacaca;"/>
                     
                   </field>
-                  
-                   <xpath expr="//notebook/page[1]/group/group[2]//field[3]" position="before">
-                      <field name="wh_taxes" attrs="{'invisible':[('fiscal_position_id', '=', False)]}" />
-                   </xpath>
+
+                  <xpath expr="//notebook/page[1]/group/group[2]//field[3]" position="before">
+                    <field name="wh_taxes" attrs="{'invisible':[('fiscal_position_id', '=', False)]}" />
+                  </xpath>
 
               
               </field>
@@ -110,12 +113,12 @@
                                                                                    ('type_tax_use', '=', 'purchase')]" />
                 </field>
               </field>
-            </record> 
+            </record>
 
             <record id="account_fiscal_position_inherit_view" model="ir.ui.view">
               <field name="model">account.fiscal.position</field>
               <field name="inherit_id" ref="account.view_account_position_form"/>
-              <field name="priority">9</field>              
+              <field name="priority">9</field>
               <field name="arch" type="xml">
                 <xpath expr="//notebook" position="inside">
                   <page name="taxes_in_invoice" string="Taxes in invoice">
@@ -128,7 +131,7 @@
                         </tree>
                       </field>
                     </group>
-                  </page>                  
+                  </page>
                 </xpath>
               </field>
             </record>

@@ -3,7 +3,7 @@
   <data>
     
     <template id="external_layout_clean_inherit" inherit_id="web.external_layout_clean">
-      <xpath expr="//div[@class='col-5 offset-1']" position="replace">
+      <xpath expr="//div[hasclass('col-5','offset-1')]" position="replace">
         <div class="col-5 offset-1" name="company_address">
           <ul class="list-unstyled">
             <strong><li t-if="company.name"><span t-field="company.name"/></li></strong>
@@ -55,7 +55,7 @@
             <span t-if="o.partner_id.phone or o.partner_id.mobile"><br/>
               Tel: <span t-esc="o.partner_id.phone"/> / <span t-esc="o.partner_id.mobile"/>
             </span>
-          </span>            
+          </span>
 
           <!-- If Partner has no identification number set -->
           <span t-if="not o.partner_id.xidentification">
@@ -70,7 +70,7 @@
         </div>
       </xpath>
 
-    <xpath expr="//ul[@class='list-inline mb4']" position="replace">
+    <xpath expr="//ul[hasclass('list-inline','mb4')]" position="replace">
         <ul class="list-inline mb4">
             <li t-if="company.phone" class="list-inline-item">Teléfono: <span t-field="company.phone"/></li>
             <li t-if="company.email" class="list-inline-item">Correo: <span t-field="company.email"/></li>
@@ -78,26 +78,25 @@
         </ul>
     </xpath>
 
-    </template> 
+    </template>
 
     <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
       <xpath expr="//t[@t-set='address']" position="replace"></xpath>
       <xpath expr="//div/h2/span[1]" position="replace">
-          <!--  <span t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')">Invoice</span>-->
+        <!-- <span t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')">Invoice</span> -->
       </xpath>
       <xpath expr="//div/h2/span[4]" position="replace">
-        <!--        <span t-if="o.type == 'out_refund'">Refund</span>-->
+        <!-- <span t-if="o.type == 'out_refund'">Refund</span> -->
       </xpath>
       <xpath expr="//div/h2/span[5]" position="replace">
-        <!--        <span t-if="o.type == 'in_refund'">Vendor Refund</span>-->
+        <!-- <span t-if="o.type == 'in_refund'">Vendor Refund</span> -->
       </xpath>
         
-
-<!--       <xpath expr="//div[@class='page']/table[@class='table table-sm o_main_table']/tbody[@class='invoice_tbody']/t[2]/tr/t[1]/td[3]//span[1]" position="replace">
-          
+      <!--
+      <xpath expr="//div[hasclass('page')]/table[hasclass('table','table-sm','o_main_table')]/tbody[hasclass('invoice_tbody')]/t[2]/tr/t[1]/td[3]//span[1]" position="replace">
           <span t-field="line.quantity" t-options="{'widget': 'float', 'precision': 0}"/>
-          
-      </xpath> -->
+      </xpath>
+      -->
 
       <xpath expr="//div[@id='informations']" position="replace">
           <t t-if="o.resolution_number">
@@ -251,7 +250,7 @@
         </div>
       </xpath>
 
-      <xpath expr="//div[@class='clearfix']" position="replace">
+      <xpath expr="//div[hasclass('clearfix')]" position="replace">
         <div id="total" style="padding: 5px 0 5px 0;">
           <div style="font-size:12px; margin-top:15px;">
             <table  width="100%" class="table table-condensed">
@@ -348,16 +347,18 @@
             <strong style="font-size: 12px;">Información adicional:</strong>
             <span style="font-size: 12px;" t-field="o.comment"/>
           </span>
-<!--           <span t-if="o.team_id">
+        <!--
+        <span t-if="o.team_id">
           <span style="font-size: 12px; font-weight:bold;">Equipo de Ventas:</span> <span style="font-size: 12px;" t-field="o.team_id"/>
-          </span> -->
+        </span>
+        -->
         </p>
       </xpath>
 
       <xpath expr="//p[@name='payment_term']" position="replace"/>
 
+  </template>
 
-
-    </template>
   </data>
+
 </odoo> 
